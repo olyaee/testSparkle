@@ -8,7 +8,7 @@
             <sparkle:version>0.9</sparkle:version>
             <sparkle:shortVersionString>0.9</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-            <enclosure url="https://github.com/olyaee/testSparkle/releases/download/prod/testSparkle.dmg" length="887586" type="application/octet-stream" sparkle:edSignature="3N/ACTXrBpTg2nglXFGNJ+6PD9qX9js3vJqgFlJBd9Dfz+fZo0cehZ0GwEdlnuG0vU70v6ah3xNFqAorWP33BQ=="/>
+            <enclosure url="https://olyaee.github.io/testSparkle/testSparkle.dmg" length="887586" type="application/octet-stream" sparkle:edSignature="3N/ACTXrBpTg2nglXFGNJ+6PD9qX9js3vJqgFlJBd9Dfz+fZo0cehZ0GwEdlnuG0vU70v6ah3xNFqAorWP33BQ=="/>
         </item>
     </channel>
 </rss>

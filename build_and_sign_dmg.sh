@@ -2,6 +2,9 @@
 
 # Build and Sign DMG Script for testSparkle
 # This script builds the app, creates a DMG, and signs everything
+#
+# Usage: ./build_and_sign_dmg.sh <version>
+# Example: ./build_and_sign_dmg.sh 1.3.0
 
 set -e  # Exit on any error
 
@@ -16,6 +19,11 @@ BUILD_DIR="build"
 ARCHIVE_PATH="${BUILD_DIR}/${APP_NAME}.xcarchive"
 EXPORT_PATH="${BUILD_DIR}/export"
 DMG_PATH="${BUILD_DIR}/${DMG_NAME}.dmg"
+
+# Version management
+NEW_VERSION=${1}  # Version provided by user (e.g., 1.3.0)
+PROJECT_FILE="${APP_NAME}.xcodeproj/project.pbxproj"
+INFO_PLIST_FILE="${APP_NAME}/Info.plist"
 
 # Colors for output
 RED='\033[0;31m'
@@ -40,6 +48,30 @@ command_exists() {
     command -v "$1" >/dev/null 2>&1
 }
 
+# Function to get current version from Xcode project
+get_current_version() {
+    grep -A1 "MARKETING_VERSION" "${PROJECT_FILE}" | grep -o '[0-9]\+\.[0-9]\+' | head -1
+}
+
+
+# Function to update version in project file
+update_project_version() {
+    local new_version=$1
+    echo_info "Updating project version to ${new_version}"
+    
+    # Update MARKETING_VERSION (handle both X.Y and X.Y.Z formats)
+    sed -i.bak "s/MARKETING_VERSION = [0-9][0-9]*\.[0-9][0-9]*\.[0-9][0-9]*;/MARKETING_VERSION = ${new_version};/g" "${PROJECT_FILE}"
+    sed -i.bak "s/MARKETING_VERSION = [0-9][0-9]*\.[0-9][0-9]*;/MARKETING_VERSION = ${new_version};/g" "${PROJECT_FILE}"
+    
+    # Update CURRENT_PROJECT_VERSION (handle both X.Y and X.Y.Z formats)
+    sed -i.bak "s/CURRENT_PROJECT_VERSION = [0-9][0-9]*\.[0-9][0-9]*\.[0-9][0-9]*;/CURRENT_PROJECT_VERSION = ${new_version};/g" "${PROJECT_FILE}"
+    sed -i.bak "s/CURRENT_PROJECT_VERSION = [0-9][0-9]*\.[0-9][0-9]*;/CURRENT_PROJECT_VERSION = ${new_version};/g" "${PROJECT_FILE}"
+    
+    # Remove backup file
+    rm -f "${PROJECT_FILE}.bak"
+}
+
+
 # Check required tools
 echo_info "Checking required tools..."
 if ! command_exists xcodebuild; then
@@ -57,6 +89,27 @@ if ! command_exists create-dmg; then
         exit 1
     fi
 fi
+
+# Version management
+if [ -z "$NEW_VERSION" ]; then
+    echo_error "Usage: $0 <version>"
+    echo_error "Example: $0 1.3.0"
+    exit 1
+fi
+
+echo_info "Setting version to: ${NEW_VERSION}"
+CURRENT_VERSION=$(get_current_version)
+echo_info "Current version: ${CURRENT_VERSION:-"unknown"}"
+
+# Validate version format
+if ! [[ "$NEW_VERSION" =~ ^[0-9]+\.[0-9]+(\.[0-9]+)?$ ]]; then
+    echo_error "Invalid version format. Use format: major.minor or major.minor.patch"
+    echo_error "Examples: 1.3, 1.3.0, 2.0.1"
+    exit 1
+fi
+
+# Update version in project file (Xcode will auto-generate Info.plist)
+update_project_version "$NEW_VERSION"
 
 # Clean previous build
 echo_info "Cleaning previous build..."
