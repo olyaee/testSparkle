@@ -18,6 +18,7 @@ struct testSparkleApp: App {
 
     var body: some Scene {
         WindowGroup {
+            ContentView()
         }
         .commands {
             CommandGroup(after: .appInfo) {
