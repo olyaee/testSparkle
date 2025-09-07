@@ -3,6 +3,18 @@
     <channel>
         <title>testSparkle</title>
         <item>
+            <title>2.1</title>
+            <pubDate>Sun, 07 Sep 2025 07:50:19 +0200</pubDate>
+            <sparkle:version>2.1</sparkle:version>
+            <sparkle:shortVersionString>2.1</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+            <enclosure url="https://olyaee.github.io/testSparkle/releases/testSparkle-2.1.dmg" length="887865" type="application/octet-stream" sparkle:edSignature="N8r9ufCn3o03fHVCrreN3MAA7hKSvKXnAAJhz3oZJSbdjO+9SHeLnTp10nkTFwSH94BxDEtvr+4rJ5xDLARKBQ=="/>
+            <sparkle:deltas>
+                <enclosure url="https://olyaee.github.io/testSparkle/releases/testSparkle2.1-2.0.delta" sparkle:deltaFrom="2.0" length="10442" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="862528" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,en" sparkle:edSignature="F9a5g3M0AIIjX0WEG8de8e7L5pLbGF7C5WKWyXcfxUCCC21fo3n89RykKXgPC63LOpcgHjOrwj71TDoC1E5KBQ=="/>
+                <enclosure url="https://olyaee.github.io/testSparkle/releases/testSparkle2.1-1.0.delta" sparkle:deltaFrom="1.0" length="9806" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="862528" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,en" sparkle:edSignature="aQFLGaRFNf7OiI2rfoVznff9TFxBpOMxmuNXAmh40XE5ed1ypHX58qVx4O6TebudkySPUDgP/qegZpWPdQxRDg=="/>
+            </sparkle:deltas>
+        </item>
+        <item>
             <title>2.0</title>
             <pubDate>Sun, 07 Sep 2025 07:23:23 +0200</pubDate>
             <sparkle:version>2.0</sparkle:version>
@@ -23,14 +35,6 @@
             <sparkle:deltas>
                 <enclosure url="https://olyaee.github.io/testSparkle/releases/testSparkle1.0-0.9.delta" sparkle:deltaFrom="0.9" length="9766" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="862528" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,en" sparkle:edSignature="9Qk1s7Sc8bw+NUKoemskPdRBy8MBPOwvUp71wMSteCLETouEPLcFtrCmCsHYmI/novUj41qG+oOuMcLQylcWCw=="/>
             </sparkle:deltas>
-        </item>
-        <item>
-            <title>0.9</title>
-            <pubDate>Sun, 07 Sep 2025 06:04:30 +0200</pubDate>
-            <sparkle:version>0.9</sparkle:version>
-            <sparkle:shortVersionString>0.9</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-            <enclosure url="https://olyaee.github.io/testSparkle/testSparkle.dmg" length="887586" type="application/octet-stream" sparkle:edSignature="3N/ACTXrBpTg2nglXFGNJ+6PD9qX9js3vJqgFlJBd9Dfz+fZo0cehZ0GwEdlnuG0vU70v6ah3xNFqAorWP33BQ=="/>
         </item>
     </channel>
 </rss>
