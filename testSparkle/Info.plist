@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SUEnableInstallerLauncherService</key>
+	<true/>
+	<key>SUFeedURL</key>
+	<string>https://olyaee.github.io/testSparkle/appcast.xml</string>
+	<key>SUPublicEDKey</key>
+	<string>758Lgr0SYTf5oW+qehB8DGLJ0YA9/HqFaXpmr5DiKgg=</string>
+</dict>
+</plist>

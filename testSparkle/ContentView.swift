@@ -1,4 +1,4 @@
-//
+ //
 //  ContentView.swift
 //  testSparkle
 //
@@ -6,16 +6,20 @@
 //
 
 import SwiftUI
+import Sparkle
+
+
+extension Bundle {
+    var buildNumber: String {
+        return infoDictionary?["CFBundleVersion"] as! String
+    }
+}
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+        Text("\(Bundle.main.buildNumber)")
+            .padding()
+            .frame(width: 300, height: 200)
     }
 }
 
