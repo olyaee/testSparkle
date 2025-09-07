@@ -23,3 +23,8 @@ struct CheckForUpdatesView: View {
             .disabled(!checkForUpdatesViewModel.canCheckForUpdates)
     }
 }
+
+#Preview {
+    let updaterController = SPUStandardUpdaterController(startingUpdater: false, updaterDelegate: nil, userDriverDelegate: nil)
+    CheckForUpdatesView(updater: updaterController.updater)
+}
