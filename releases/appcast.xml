@@ -3,6 +3,17 @@
     <channel>
         <title>testSparkle</title>
         <item>
+            <title>1.0</title>
+            <pubDate>Sun, 07 Sep 2025 07:08:19 +0200</pubDate>
+            <sparkle:version>1.0</sparkle:version>
+            <sparkle:shortVersionString>1.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+            <enclosure url="https://olyaee.github.io/testSparkle/releases/testSparkle-1.0.dmg" length="887807" type="application/octet-stream" sparkle:edSignature="wubFKoBG31i18qJ/EMsUxBnhtPjA2e9KB+WC553+EQJrnXJMpvhUc9pq4M/SNgHE4HCb1NgJGAvZ/H5/L78EBA=="/>
+            <sparkle:deltas>
+                <enclosure url="https://olyaee.github.io/testSparkle/releases/testSparkle1.0-0.9.delta" sparkle:deltaFrom="0.9" length="9766" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="862528" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,en" sparkle:edSignature="9Qk1s7Sc8bw+NUKoemskPdRBy8MBPOwvUp71wMSteCLETouEPLcFtrCmCsHYmI/novUj41qG+oOuMcLQylcWCw=="/>
+            </sparkle:deltas>
+        </item>
+        <item>
             <title>0.9</title>
             <pubDate>Sun, 07 Sep 2025 06:04:30 +0200</pubDate>
             <sparkle:version>0.9</sparkle:version>
