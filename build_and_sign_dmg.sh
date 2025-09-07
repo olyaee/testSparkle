@@ -14,11 +14,10 @@ SCHEME="testSparkle"
 CONFIGURATION="Release"
 DEVELOPER_ID="L34TH4QX2W"  # Your development team ID
 SIGNING_IDENTITY="Developer ID Application: ehsan Olyaee (${DEVELOPER_ID})"
-DMG_NAME="${APP_NAME}"
 BUILD_DIR="build"
 ARCHIVE_PATH="${BUILD_DIR}/${APP_NAME}.xcarchive"
 EXPORT_PATH="${BUILD_DIR}/export"
-DMG_PATH="${BUILD_DIR}/${DMG_NAME}.dmg"
+RELEASES_DIR="releases"
 
 # Version management
 NEW_VERSION=${1}  # Version provided by user (e.g., 1.3.0)
@@ -100,6 +99,11 @@ fi
 echo_info "Setting version to: ${NEW_VERSION}"
 CURRENT_VERSION=$(get_current_version)
 echo_info "Current version: ${CURRENT_VERSION:-"unknown"}"
+
+# Set up versioned paths
+DMG_NAME="${APP_NAME}-${NEW_VERSION}"
+DMG_PATH="${BUILD_DIR}/${DMG_NAME}.dmg"
+VERSION_DIR="${RELEASES_DIR}/${NEW_VERSION}"
 
 # Validate version format
 if ! [[ "$NEW_VERSION" =~ ^[0-9]+\.[0-9]+(\.[0-9]+)?$ ]]; then
@@ -228,15 +232,33 @@ else
     echo_warning "Gatekeeper verification failed - the DMG may not be notarized"
 fi
 
+# Prepare versioned release
+echo_info "Preparing versioned release..."
+mkdir -p "${VERSION_DIR}"
+cp "${DMG_PATH}" "${VERSION_DIR}/"
+echo_info "DMG copied to: ${VERSION_DIR}/${DMG_NAME}.dmg"
+
+# Generate appcast for all releases
+echo_info "Generating appcast..."
+SPARKLE_BIN="/Users/ehsanolyaee/Library/Developer/Xcode/DerivedData/testSparkle-ccaurpzylufeyxaczvttsufdtdko/SourcePackages/artifacts/sparkle/Sparkle/bin/generate_appcast"
+if [ -f "${SPARKLE_BIN}" ]; then
+    "${SPARKLE_BIN}" "${RELEASES_DIR}"
+    echo_info "Appcast generated at: ${RELEASES_DIR}/appcast.xml"
+else
+    echo_warning "Sparkle generate_appcast tool not found. Please generate appcast manually."
+fi
+
 # Success
 echo_info "✅ Build and signing completed successfully!"
 echo_info "📦 DMG created at: ${DMG_PATH}"
 echo_info "📏 DMG size: $(du -h "${DMG_PATH}" | cut -f1)"
+echo_info "🚀 Release prepared at: ${VERSION_DIR}/"
+echo_info "📋 Ready for upload to: https://olyaee.github.io/testSparkle/releases/"
 
-# Optional: Open the build directory
+# Optional: Open the releases directory
 if command_exists open; then
-    echo_info "Opening build directory..."
-    open "${BUILD_DIR}"
+    echo_info "Opening releases directory..."
+    open "${RELEASES_DIR}"
 fi
 
 echo_info "Done!"
