@@ -8,7 +8,7 @@
             <sparkle:version>2.0</sparkle:version>
             <sparkle:shortVersionString>2.0</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-            <enclosure url="https://github.com/olyaee/testSparkle/releases/download/prod2.1/testSparkle-2.1.dmg" length="887901" type="application/octet-stream" sparkle:edSignature="eon90zZz2ptX1S2JgV+99XREf+NFU4ZqrstIuy5qHrcwfRGYrdgS4wlfzmFMyPTlJ0j5X+2uTHUrz2vu6hU9DQ=="/>
+            <enclosure url="https://olyaee.github.io/testSparkle/releases/testSparkle-2.0.dmg" length="887901" type="application/octet-stream" sparkle:edSignature="eon90zZz2ptX1S2JgV+99XREf+NFU4ZqrstIuy5qHrcwfRGYrdgS4wlfzmFMyPTlJ0j5X+2uTHUrz2vu6hU9DQ=="/>
             <sparkle:deltas>
                 <enclosure url="https://olyaee.github.io/testSparkle/releases/testSparkle2.0-1.0.delta" sparkle:deltaFrom="1.0" length="9530" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="862528" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,en" sparkle:edSignature="fB2xChFbtCaQ9Fxt1IVC5nQtj5ZJKC79eF1DjF6fEYJwAXGW1x8i3cnmhFOi4QASc1HYJSBKnVadgiFkdRFiCg=="/>
             </sparkle:deltas>
